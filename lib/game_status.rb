@@ -16,8 +16,6 @@ WIN_COMBINATIONS = [
 ]
 
 def won?(board)
-empty_board = board.all? {|empty| empty == ""}
-draw = board.all? {|token| token == "X" || token == "O"}
 WIN_COMBINATIONS.any? do |win_combo|
   if win_combo.all {|index| board[index] == "X"} || win_combo.all? {|index| board[index]}
     return win_combo
