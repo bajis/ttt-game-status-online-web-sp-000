@@ -26,3 +26,22 @@ WIN_COMBINATIONS.any? do |win_combo|
   end
 end
 end
+def full?(board)
+  board.all? { |space| space == "X" || space == "O"}
+end
+def draw?(board)
+  if won?(board)
+    return false
+  elsif !won?(board) && full?(board)
+    return true
+  else
+    return false
+  end
+end
+def over?(board)
+  if won?(board) || draw?(board) || full?(board)
+    return true
+  else
+    return false
+  end
+end
