@@ -16,14 +16,17 @@ WIN_COMBINATIONS = [
 ]
 
 def won?(board)
+empty_board = board.all? {|empty| empty == " "}
+draw = board.all? {|token| token == "X" || token == "O"}
 WIN_COMBINATIONS.any? do |win_combo|
-  if win_combo.all {|index| board[index] == "X"} || win_combo.all? {|index| board[index] == "O"}
-    return win_combo
+  if win_combo.all? {|index| board[index] =="X" } || win_combo.all? {|index| board[index] =="O"}
+     return win_combo
   else empty_board || draw
-    false
+      false
+    end
   end
 end
-end
+
 def full?(board)
   board.all? { |space| space == "X" || space == "O"}
 end
